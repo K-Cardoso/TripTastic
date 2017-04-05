@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'welcome/index'
   
-  resources :destination #Added Destination controller as a resources (following CRUD convention)
+  resources :destinations
   
   root 'welcome#index' #Point Welcome page as root page
 
