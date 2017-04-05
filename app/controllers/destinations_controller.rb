@@ -1,4 +1,8 @@
 class DestinationsController < ApplicationController
-    def new #Create new destinations with randomize(?) params
+    def new
+    end
+    
+    def create
+        render plain: params[:destination].inspect
     end
 end
