@@ -3,6 +3,9 @@ class DestinationsController < ApplicationController
     end
     
     def create
-        render plain: params[:destination].inspect
+        @destination = Destination.new(params[:destination])
+        
+        @destination.save
+        redirect_to @destination
     end
 end
