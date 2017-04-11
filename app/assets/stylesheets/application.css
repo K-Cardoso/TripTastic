@@ -11,44 +11,82 @@
  * It is generally better to create a new file per style scope.
  *
  //DO NOT DELETE THIS IT WILL CAUSE THE CSS STUFF TO BREAK
- *= require_tree .
  *= require_self
+ *= require_tree .
  */
  
  /*how to apply css style to individual pages*/
  /*https://stackoverflow.com/questions/7134034/using-rails-3-1-assets-pipeline-to-conditionally-use-certain-css*/
- 
- 
- #title
-{
+
+body, html {
+    height: 100%;
+    margin: 0;
+    background-color: lightblue;
+}
+header h1, h2 {
     font-family: 'Playfair Display', serif;
     text-align: center;
+    margin: 0;
+    padding: 3px;
 }
 
-/*.background_page*/
-/*{*/
-    /*align-items: center;*/
-/*    background: url('https://s3.amazonaws.com/codecademy-content/courses/web-101/unit-1/01/background.jpg') center center;*/
-    /*display: flex;*/
-    /*flex-direction: column;*/
-    /*justify-content: center;*/
-/*    max-width: 100%;*/
-/*    height: auto;*/
-    /*margin: auto;*/
-/*}*/
-
-header
-{
-    /*align-items: center;*/
-    background-image: url('https://s3.amazonaws.com/codecademy-content/courses/web-101/unit-1/01/background.jpg');
-    /*display: flex;*/
-    /*flex-direction: column;*/
-    /*justify-content: center;*/
-    width: 100%;
-    height: 100%;
+/*Background on Home Page*/
+.bg {
+    /* Center and scale the Image*/
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    
+    /* Image */
+    background-image: url("https://s3.amazonaws.com/codecademy-content/courses/web-101/unit-1/01/background.jpg");
+    height: 50%;
 }
 
-body
-{
-    background-color: lightblue;
+/*Nav. menu*/
+nav.nav_menu ul {
+    list-style-type: none;
+    margin: 0px 20px 0px 0px;
+    text-align: center;
+    /*font-family: Verdana, Arial, Helvetica, sans-serif;*/
+    width: auto;
+    font-size: 16px;
+    line-height: 30px;
+    display: block;
+    
+    /* Apply Boarder around Nav. Menu*/
+    /*border-top: 2px solid black;*/
+    /*border-bottom: 2px solid black;*/
+}
+
+nav.nav_menu ul li {
+    display: inline;
+    /*margin: 0px 5px;*/
+}
+
+nav.nav_menu ul li a {
+    text-decoration: none;
+    padding: 5px;
+    color: black;
+    transition-duration: 0.2s;
+    cursor: pointer;
+}
+
+
+/* WIP
+#nav_menu a:active {
+    padding: 4.5px;
+    border: 1.5px solid black;
+    border-radius: 5px;
+	text-decoration:none;
+	background-color: #333333;
+}
+*/
+
+nav.nav_menu a:hover {
+    /*    padding: 5px;*/
+    /*    border: 1.5px solid black;*/
+    text-decoration: none;
+    color: white;
+    background-color: #996600;
 }

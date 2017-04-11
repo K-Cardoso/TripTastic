@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
   get 'welcome/index'
-  
   resources :destinations
+  
+  get 'signup'  => 'users#new' 
+  resources :users
+  
+    
+  get '/login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
   
   root 'welcome#index' #Point Welcome page as root page
 

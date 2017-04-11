@@ -5,13 +5,23 @@
     <!--<link rel="stylesheet" type="text/css" href="style.css">-->
   </head>
   
-  <header>
-    <h1 id="title">TripTastic</h1>
-    <h2>An Unexpected Journey</h2>
-  </header>
-  
   <body>
-    <%= link_to 'New Destinations', new_destination_path %>
+    
+    <header class="bg">
+      <h1>TripTastic</h1>
+      <h2>An Unexpected Journey</h2>
+      
+      <nav class="nav_menu">
+        <ul>
+            <li><%= link_to 'New Destinations', new_destination_path %></li>
+            <li><%= link_to 'Signup', signup_path %></li>
+            <li><%= link_to 'Login', login_path %></li>
+            <li><%= link_to 'List of Users', users_path %></li>
+            <li><%= link_to 'List of Destinations', destinations_path %></li>
+        </ul>
+      </nav>
+      
+    </header>
   </body>
   
 </html>
