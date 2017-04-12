@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170410152209) do
+ActiveRecord::Schema.define(version: 20170412154455) do
 
   create_table "destinations", force: :cascade do |t|
     t.string   "country"
@@ -23,10 +23,9 @@ ActiveRecord::Schema.define(version: 20170410152209) do
 
   create_table "users", force: :cascade do |t|
     t.string   "username"
-    t.string   "password"
-    t.string   "role"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "password_digest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

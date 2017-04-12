@@ -1,8 +1,5 @@
-class User < ActiveRecord::Base
-
-    has_secure_password
-    def editor? 
-	 self.role == 'editor' 
-	end
+class User < ApplicationRecord
+    
+      has_secure_password 
 
 end
