@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get 'welcome/index'
-  resources :destinations
+  resources :destinations do 
+    resources :trips
+  end
   
   get 'signup'  => 'users#new' 
   resources :users
