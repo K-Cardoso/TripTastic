@@ -1,0 +1,24 @@
+<h1>Listing destination</h1>
+<%= link_to 'New Destination', new_destination_path %>
+
+<table>
+  <tr>
+    <th>Country</th>
+    <th>City</th>
+  </tr>
+ 
+  <% @destination.each do |destination| %>
+    <tr>
+      <td><%= destination.country %></td>
+      <td><%= destination.city %></td>
+      <td><%= link_to 'Show', destination_path(destination) %></td>
+      <td><%= link_to 'Edit', edit_destination_path(destination) %></td>
+      <td><%= link_to 'Destroy', 
+                                destination_path(destination),
+                                method: :delete,
+                                data: {confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  
+  <li><%= link_to 'Home', root_path %></li>
+</table>

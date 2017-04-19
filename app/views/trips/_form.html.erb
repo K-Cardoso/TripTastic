@@ -1,11 +1,23 @@
-<%= form_for ([@article, @article.comments.build]) do |f| %>
+<%= form_for ([@destination, @destination.trips.build]) do |f| %>
     <p>
-        <%= f.label :commenter %><br>
-        <%= f.text_field :commenter %>
+        <%= f.label :depart_time %><br>
+        <%= f.text_field :depart_time %>
     </p>
     <p>
-        <%= f.label :body %><br>
-        <%= f.text_area :body %>
+        <%= f.label :return_date %><br>
+        <%= f.text_field :body %>
+    </p>
+    <p>
+        <%= f.label :depart_time %><br>
+        <%= f.text_field :depart_time %>
+    </p>
+    <p>
+        <%= f.label :return_time %><br>
+        <%= f.text_field :return_time %>
+    </p>
+    <p>
+        <%= f.label :mode %><br>
+        <%= f.text_field :mode %>
     </p>
     <p>
         <%= f.submit %>

@@ -1,17 +1,27 @@
 <p>
-    <strong>Title:</strong>
-    <%= @article.title %>
+    <strong>Country:</strong>
+    <%= @destination.country %>
 </p>
 
 <p>
-    <strong>Text:</strong>
-    <%= @article.text %>
+    <strong>City:</strong>
+    <%= @destination.city %>
 </p>
 
-<h2>Comments</h2>
-<%= render @article.comments %>
+<p>
+    <strong>Start Date:</strong>
+    <%= @destination.start_date %>
+</p>
 
-<h2>Add a comment:</h2>
-<%= render 'comments/form' %>
+<p>
+    <strong>End Date:</strong>
+    <%= @destination.end_date %>
+</p>
 
-<%= link_to 'Article List', articles_path %>
+<!--<h2>Comments</h2>-->
+<!--<\%= render @destination.trips %>-->
+
+<!--<h2>Add a comment:</h2>-->
+<!--<\%= render 'comments/form' %>-->
+
+<%= link_to 'Destination List', destinations_url %>

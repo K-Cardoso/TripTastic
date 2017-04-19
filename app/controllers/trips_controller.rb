@@ -1,4 +1,7 @@
 class TripsController < ApplicationController
+    #require user to login prior to accessing trip page
+    before_action :require_user, only: [:index, :show]
+    
     
     def create 
         @destination = Destination.find(params[:destination_id])
