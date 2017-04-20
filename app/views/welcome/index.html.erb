@@ -1,28 +1,28 @@
-<html>
-  <head>
+<head>
     <title>TripTastic</title>
-    <!--<link href='https://fonts.googleapis.com/css?family=Playfair+Display:900|Raleway:300' rel='stylesheet' type='text/css'>-->
-    <!--<link rel="stylesheet" type="text/css" href="style.css">-->
-  </head>
-  
-  <body>
-    
-    <header class="bg">
-      <h1>TripTastic</h1>
-      <h2>An Unexpected Journey</h2>
-      
-      <nav class="nav_menu">
-        <ul>
-            <li><%= link_to 'New Destinations', new_destination_path %></li>
-            <li><%= link_to 'Signup', signup_path %></li>
-            <li><%= link_to 'Login', login_path %></li>
-            <li><%= link_to 'List of Users', users_path %></li>
-            <li><%= link_to 'List of Destinations', destinations_path %></li>
-           
-        </ul>
-      </nav>
-      
+</head>
+
+<body id="bg">
+    <header>
+        <h1>TripTastic</h1>
+        <h2>An Unexpected Journey</h2>
+        
+        <nav class="nav_menu">
+            
+            <% if current_user %> 
+                <ul> 
+                <li><%= current_user.username%></li> 
+                <li><%= link_to 'Log out', logout_path, method: "delete" %></li>
+                <li><%= link_to 'Destination', controller: 'destinations' %></li>
+                </ul> 
+            <% else %> 
+                <ul> 
+                <li><%= link_to 'Login', login_path %></a></li> 
+                <li><%= link_to 'Signup', signup_path %></a></li>
+                <li><%= link_to 'Destination', controller: 'destinations' %></li>
+                </ul> 
+            <% end %>
+        </nav>
+        
     </header>
-  </body>
-  
-</html>
+</body>

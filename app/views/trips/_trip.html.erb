@@ -1,15 +1,22 @@
-<p>
-    <strong>Commenter:</strong>
-    <%= comment.commenter%>
-</p>
-
-<p>
-    <strong>Comment:</strong>
-    <%= comment.body %>
-</p>
-
-<p>
-    <%= link_to 'Destroy Comment', [comment.article, comment],
-        method: :delete,
-        data: { confirm: 'Are you sure?' } %>
-</p
+<table>
+  <tr>
+    <th>Departure Date</th>
+    <th>Departure Time</th>
+    <th>Return Date</th>
+    <th>Return Time</th>
+  </tr>
+ 
+  <% Trip.all.each do |trip| %>
+    <tr>
+      <td><%= trip.depart_date %></td>
+      <td><%= trip.depart_time %></td>
+      <td><%= trip.return_date %></td>
+      <td><%= trip.depart_time %></td>
+      <td><%= link_to 'Edit Trip', edit_destination_trip_path(trip.destination, trip) %></td>
+      <td><%= link_to 'Delete Trip', 
+                                destination_trip_path(trip.destination, trip),
+                                method: :delete,
+                                data: {confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>

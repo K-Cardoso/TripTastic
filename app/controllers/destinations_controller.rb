@@ -6,18 +6,21 @@ class DestinationsController < ApplicationController
     
     def create
         @destination = Destination.new(destination_params)
-        
-        @destination.save
-        redirect_to @destination
+        if @destination.save
+            redirect_to @destination
+        else
+            render 'new'
+        end
     end
     
+    # Takes you to show.html.erb for destination
     def edit
         @destination = Destination.find(params[:id])
     end
     
+    # Updating a record that already exists
     def update
         @destination= Destination.find(params[:id])
-        
         if @destination.update(destination_params)
             redirect_to @destination
         else
@@ -36,13 +39,11 @@ class DestinationsController < ApplicationController
     def destroy
         @destination = Destination.find(params[:id])
         @destination.destroy
-        
         redirect_to destinations_url
     end
-    
 end
 
 private
     def destination_params
-        params.require(:destination).permit(:country, :city, :start_date, :end_date)
+        params.require(:destination).permit(:country, :city)
     end

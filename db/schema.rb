@@ -15,8 +15,6 @@ ActiveRecord::Schema.define(version: 20170419141110) do
   create_table "destinations", force: :cascade do |t|
     t.string   "country"
     t.string   "city"
-    t.date     "start_date"
-    t.date     "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

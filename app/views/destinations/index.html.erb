@@ -1,5 +1,6 @@
-<h1>Listing destination</h1>
-<%= link_to 'New Destination', new_destination_path %>
+<h1>Current Destination</h1>
+<p><%= link_to 'Home', root_path %></p>
+<p><%= link_to 'Create Destination', new_destination_path %></p>
 
 <table>
   <tr>
@@ -19,6 +20,4 @@
                                 data: {confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
-  
-  <li><%= link_to 'Home', root_path %></li>
 </table>

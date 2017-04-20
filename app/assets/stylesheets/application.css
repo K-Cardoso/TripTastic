@@ -18,20 +18,32 @@
  /*how to apply css style to individual pages*/
  /*https://stackoverflow.com/questions/7134034/using-rails-3-1-assets-pipeline-to-conditionally-use-certain-css*/
 
-body, html {
+html {
     height: 100%;
-    margin: 0;
     background-color: lightblue;
 }
-header h1, h2 {
+
+header {
     font-family: 'Playfair Display', serif;
     text-align: center;
     margin: 0;
     padding: 3px;
 }
 
+/*styel for each page title*/
+#page_title {
+    color: black;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
 /*Background on Home Page*/
-.bg {
+#bg {
+    margin: 0px;
+    padding: 10px;
+    
     /* Center and scale the Image*/
     background-position: center;
     background-repeat: no-repeat;
@@ -40,28 +52,25 @@ header h1, h2 {
     
     /* Image */
     background-image: url("https://s3.amazonaws.com/codecademy-content/courses/web-101/unit-1/01/background.jpg");
-    height: 50%;
+    height: 98%;
 }
 
 /*Nav. menu*/
 nav.nav_menu ul {
     list-style-type: none;
-    margin: 0px 20px 0px 0px;
-    text-align: center;
-    /*font-family: Verdana, Arial, Helvetica, sans-serif;*/
+    margin: 0;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
     width: auto;
     font-size: 16px;
     line-height: 30px;
     display: block;
-    
-    /* Apply Boarder around Nav. Menu*/
-    /*border-top: 2px solid black;*/
-    /*border-bottom: 2px solid black;*/
+    border-top: 2px solid #555555;
+    border-bottom: 2px solid #555555;
 }
 
 nav.nav_menu ul li {
     display: inline;
-    /*margin: 0px 5px;*/
+    margin: 0px 5px;
 }
 
 nav.nav_menu ul li a {
@@ -72,20 +81,7 @@ nav.nav_menu ul li a {
     cursor: pointer;
 }
 
-
-/* WIP
-#nav_menu a:active {
-    padding: 4.5px;
-    border: 1.5px solid black;
-    border-radius: 5px;
-	text-decoration:none;
-	background-color: #333333;
-}
-*/
-
 nav.nav_menu a:hover {
-    /*    padding: 5px;*/
-    /*    border: 1.5px solid black;*/
     text-decoration: none;
     color: white;
     background-color: #996600;
