@@ -15,7 +15,7 @@ feature "Vistor creates new account" do
         expect(page).to have_content("Sign up")
         fill_in "Username", with: "rspec@rspec.com"
         fill_in "Password", with: "rspec123"
-        click_button "CREATE AN ACCOUNT"
+        click_button "Create an account"
         expect(page).to have_content("TripTastic")
         expect(page).to have_content("rspec@rspec.com")
     end

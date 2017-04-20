@@ -1,4 +1,8 @@
+<h1>New Trip!</h1>
+<%= link_to 'Back', destination_path(@destination) %> <!-- How does it know? -->
+
 <%= form_for ([@destination, @destination.trips.build]) do |f| %>
+
     <p>
         <%= f.label :depart_time %><br>
         <%= f.date_field :depart_time %>

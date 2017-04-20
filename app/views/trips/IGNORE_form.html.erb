@@ -1,5 +1,20 @@
-<p id="page_title">New Trip!</p>
 <%= form_for ([@destination, @destination.trips.build]) do |f| %>
+
+    <!--Code to display error-->
+    <% if @destination.trips.errors.any? %>
+        <div id="error_explanation">
+            <h2>
+                <%= pluralize(@destination.trips.errors.count, "error") %> prohibited
+                this trip from being created:
+            </h2>
+        <ul>
+            <% @destination.trips.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+        </ul>
+        </div>
+    <% end %>
+
     <p>
         <%= f.label :depart_time %><br>
         <%= f.date_field :depart_time %>
