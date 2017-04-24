@@ -3,9 +3,24 @@
 
 <%= form_for ([@destination, @destination.trips.build]) do |f| %>
 
+    <!--Code to display error-->
+    <% if @trip.errors.any? %>
+        <div id="error_explanation">
+            <h2>
+                <%= pluralize(@trip.errors.count, "error") %> prohibited
+                this trip from being created:
+            </h2>
+            <ul>
+                <% @trip.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+            </ul>
+        </div>
+    <% end %>
+
     <p>
-        <%= f.label :depart_time %><br>
-        <%= f.date_field :depart_time %>
+        <%= f.label :depart_date %><br>
+        <%= f.date_field :depart_date %>
     </p>
     <p>
         <%= f.label :return_date %><br>
