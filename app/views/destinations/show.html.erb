@@ -11,6 +11,11 @@
     <%= @destination.city %>
 </p>
 
+<p>
+    <strong>Image:</strong>
+    <img src=<%= "/assets/#{@destination.city}.png" %> alt="Destination Image" style="width:128px;height:128px;">
+</p>
+
 <h2>Trips</h2>
 <%= render @destination.trips %>
 

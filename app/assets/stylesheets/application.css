@@ -86,3 +86,16 @@ nav.nav_menu a:hover {
     color: white;
     background-color: #996600;
 }
+
+/*Link Style*/
+a:link {
+    color: white;
+}
+a:visited {
+    color: green;
+}
+a:hover {
+    color: green;
+}
+
+

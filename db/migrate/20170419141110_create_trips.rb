@@ -3,8 +3,8 @@ class CreateTrips < ActiveRecord::Migration[5.0]
     create_table :trips do |t|
       t.date :depart_date
       t.date :return_date
-      t.time :depart_time
-      t.time :return_time
+      t.string :depart_time
+      t.string :return_time
       t.string :mode
       t.references :destination, foreign_key: true
 
