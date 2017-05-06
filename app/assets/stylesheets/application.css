@@ -19,83 +19,192 @@
  /*https://stackoverflow.com/questions/7134034/using-rails-3-1-assets-pipeline-to-conditionally-use-certain-css*/
 
 html {
-    height: 100%;
-    background-color: lightblue;
+	height: 100%;
+	/*background-color: lightblue;*/
 }
 
 header {
-    font-family: 'Playfair Display', serif;
-    text-align: center;
-    margin: 0;
-    padding: 3px;
+	text-align: center;
+	margin: 0;
+	padding: 3px;
+}
+header h1 {
+	font-family: 'Fjalla One', sans-serif;
+}
+header h3{
+	font-family: 'Open Sans', sans-serif;
 }
 
-/*styel for each page title*/
-#page_title {
-    color: black;
-    text-align: center;
-    font-family: 'Playfair Display', serif;
-    font-weight: bold;
-    font-size: 1.5em;
+body {
+	font-family: 'Open Sans', sans-serif;
 }
 
 /*Background on Home Page*/
-#bg {
-    margin: 0px;
-    padding: 10px;
-    
-    /* Center and scale the Image*/
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    
-    /* Image */
-    background-image: url("https://s3.amazonaws.com/codecademy-content/courses/web-101/unit-1/01/background.jpg");
-    height: 98%;
+#background {
+	/* Center and scale the Image*/
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	
+	/* Image */
+	background-image: url("https://s3.amazonaws.com/codecademy-content/courses/web-101/unit-1/01/background.jpg");
+	height: 98%;
+}
+
+#pic {
+	/*margin: 0px;*/
+	/*padding: 10px;*/
+	/* Center and scale the Image*/
+	/*position: relative;*/
+	/*height: 5%;*/
+	/*width: 7%;*/
+	
+	margin-left:20px;
+	width:600px;
+	height:300px;
+	padding:15px;
+}
+
+/*Background for easy reading*/
+#view_list {
+	background: rgba(153, 161, 175, .6);
+	
+}
+
+/*Link Style ONLY IN THE VIEW SECTION*/
+#view_list a:link, a:visited {
+    background-color: #50B4E8;
+    border-radius: 10px;
+    color: black;
+    padding: 9px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition-duration: 0.2s;
+}
+
+#view_list a:hover, a:active {
+    background-color: #1D9DE2;
 }
 
 /*Nav. menu*/
 nav.nav_menu ul {
-    list-style-type: none;
-    margin: 0;
-    font-family: Verdana, Arial, Helvetica, sans-serif;
-    width: auto;
-    font-size: 16px;
-    line-height: 30px;
-    display: block;
-    border-top: 2px solid #555555;
-    border-bottom: 2px solid #555555;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	
+	font-family: 'Open Sans', sans-serif;
+	text-align: center;
+	
+	width: auto;
+	font-size: 16px;
+	line-height: 35px;
+	display: block;
+	border-top: 2px solid #555555;
+	border-bottom: 2px solid #555555;
 }
 
 nav.nav_menu ul li {
-    display: inline;
-    margin: 0px 5px;
+	display: inline;
 }
 
 nav.nav_menu ul li a {
-    text-decoration: none;
-    padding: 5px;
-    color: black;
-    transition-duration: 0.2s;
-    cursor: pointer;
+	text-decoration: none;
+  border-radius: 10px;
+	padding: 5px;
+	color: black;
+	transition-duration: 0.2s;
+	cursor: pointer;
 }
 
 nav.nav_menu a:hover {
+	text-decoration: none;
+	background-color: #1d9de2;
+	color: white;
+}
+
+/*Testing Dropdown navigation menu*/
+
+/*.nav_menu {*/
+/*    overflow: hidden;*/
+/*    background-color: #333;*/
+
+/*	font-family: 'Open Sans', sans-serif;*/
+
+/*}*/
+
+/*.nav_menu a {*/
+/*    float: left;*/
+/*    font-size: 16px;*/
+/*    color: white;*/
+/*    text-align: center;*/
+/*    padding: 14px 16px;*/
+/*    text-decoration: none;*/
+/*}*/
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown .dropbtn {
+    font-size: 16px;    
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    
+    font-family: inherit;
+}
+
+.nav_menu a:hover, .dropdown:hover .dropbtn {
+    background-color: red;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
     text-decoration: none;
-    color: white;
-    background-color: #996600;
+    display: block;
+    text-align: left;
 }
 
-/*Link Style*/
-a:link {
-    color: white;
-}
-a:visited {
-    color: green;
-}
-a:hover {
-    color: green;
+.dropdown-content a:hover {
+    background-color: #ddd;
 }
 
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+/**/
 
+
+
+
+
+.TryThis {
+	width:50%;
+	position:fixed;
+	float:right;
+	margin-left: 200px;
+	clear:both;
+}
+
+.TryThis2 {
+	background-size:45px 45px;
+	height:200px;
+	width:55px;    
+	float:right;
+}

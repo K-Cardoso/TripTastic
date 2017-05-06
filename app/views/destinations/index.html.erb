@@ -1,26 +1,68 @@
-<h1>Current Destination</h1>
-<p><%= link_to 'Home', root_path %></p>
-<p><%= link_to 'Create Destination', new_destination_path %></p>
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans" rel="stylesheet">
+</head>
 
-<table>
-  <tr>
-    <th>Country</th>
-    <th>City</th>
-  </tr>
- 
-  <% @destination.each do |destination| %>
-    <tr>
-      <td><%= destination.country %></td>
-      <td><%= destination.city %></td>
-      <td><%= link_to 'Show', destination_path(destination) %></td>
-      <td><%= link_to 'Edit', edit_destination_path(destination) %></td>
-      <td><%= link_to 'Destroy', 
-                                destination_path(destination),
-                                method: :delete,
-                                data: {confirm: 'Are you sure?' } %></td>
-    </tr>
-    <tr>
-      <td><img src=<%= "/assets/#{destination.city}.png" %> alt="Destination Image" style="width:128px;height:128px;"></td>
-    </tr>
-  <% end %>
-</table>
+<body id="background">
+	<header>
+		<h1>TripTastic</h1>
+		<h3>Destinations Around The World Are Just A Click Away</h3>
+		
+		<nav class="nav_menu">
+			<% if current_user %>
+			<!--Nav menu if user is logged in (to be place in under 'if'-->
+				<ul>
+					<li><%= current_user.username%></li>
+					<li><%= link_to 'Home', root_path %></li>
+					<li><%= link_to 'Log out', logout_path, method: "delete" %></li>
+					<li><%= link_to 'Destinations', controller: 'destinations' %>
+						<ul>
+							<li><%= link_to 'Create Destination', new_destination_path %></li>
+						</ul>
+					</li>
+				</ul>
+			<% else %>
+				<!--Nav menu if user is NOT logged in (to be place under 'else'-->
+				<ul>
+					<li><%= link_to 'Home', root_path %></li>
+					<li><%= link_to 'Login', login_path %></a></li> 
+					<li><%= link_to 'Signup', signup_path %></a></li>
+					<li><%= link_to 'Destinations', controller: 'destinations' %></li>
+				</ul>
+			<% end %>
+		</nav>
+	</header>
+
+<!--<div class="TryThis">-->
+<!--    <div class="TryThis2">-->
+<!--      <img src=<%= "/assets/cartoonplane.png" %> alt="Destination Image" style="width:500px;height:250px;">-->
+<!--    </div>-->
+<!--</div>-->
+
+	<p><%= link_to 'Create Destination', new_destination_path %></p>
+	
+	<div id="view_list">
+		<table>
+			<tr>
+				<th>Country</th>
+				<th>City</th>
+			</tr>
+			
+			<% @destination.each do |destination| %>
+				<tr>
+					<td><%= destination.country %></td>
+					<td><%= destination.city %></td>
+					<td><%= link_to 'Show', destination_path(destination) %></td>
+					<td><%= link_to 'Edit', edit_destination_path(destination) %></td>
+					<td><%= link_to 'Delete', 
+															destination_path(destination),
+															method: :delete,
+															data: {confirm: 'Are you sure?' } %></td>
+				</tr>
+				<tr>
+					<td><img id="destination_image" src=<%= "/assets/#{destination.city}.png" %> alt="Destination Image" style="width:500px;height:250px;"></td>
+				</tr>
+			<% end %>
+		</table>
+	</div>
+	
+</body>

@@ -1,22 +1,46 @@
-<h1>Destination Details</h1>
-<%= link_to 'Destination List', destinations_path %>
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans" rel="stylesheet">
+</head>
 
-<p>
-    <strong>Country:</strong>
-    <%= @destination.country %>
-</p>
-
-<p>
-    <strong>City:</strong>
-    <%= @destination.city %>
-</p>
-
-<p>
-    <strong>Image:</strong>
-    <img src=<%= "/assets/#{@destination.city}.png" %> alt="Destination Image" style="width:128px;height:128px;">
-</p>
-
-<h2>Trips</h2>
-<%= render @destination.trips %>
-
-<p><%= link_to 'Create Trip', new_destination_trip_path(@destination) %></p>
+	<header>
+		<h1>Destination Details</h1>
+		
+		<nav class="nav_menu">
+			<% if current_user %>
+			<!--Nav menu if user is logged in (to be place in under 'if'-->
+				<ul> 
+					<li><%= current_user.username%></li>
+					<li><%= link_to 'Home', root_path %></li>
+					<li><%= link_to 'Log out', logout_path, method: "delete" %></li>
+					<li><%= link_to 'Destinations', controller: 'destinations' %></li>
+				</ul>
+			<% else %>
+				<!--Nav menu if user is NOT logged in (to be place under 'else'-->
+				<ul>
+					<li><%= link_to 'Home', root_path %></li>
+					<li><%= link_to 'Login', login_path %></a></li> 
+					<li><%= link_to 'Signup', signup_path %></a></li>
+					<li><%= link_to 'Destinations', controller: 'destinations' %></li>
+				</ul>
+			<% end %>
+		</nav>
+	</header>
+	
+	
+	
+	<p>
+		<strong>Country:</strong>
+		<%= @destination.country %>
+	</p>
+	
+	<p>
+		<strong>City:</strong>
+		<%= @destination.city %>
+	</p>
+	
+	<h2>Trips</h2>
+	<p><%= link_to 'Create Trip', new_destination_trip_path(@destination) %></p>
+	
+	<%= render @destination.trips %>
+	
+	<img id="pic" src=<%= "/assets/#{@destination.city}.png" %> alt="Destination Image">

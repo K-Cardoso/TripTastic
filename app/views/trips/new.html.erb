@@ -1,44 +1,70 @@
-<h1>New Trip!</h1>
-<%= link_to 'Back', destination_path(@destination) %> <!-- How does it know? -->
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans" rel="stylesheet">
+</head>
+<body id="background">
+	<header>
+		<h1>New Trip!</h1>
+		
+		<nav class="nav_menu">
+			<% if current_user %>
+			<!--Nav menu if user is logged in (to be place in under 'if'-->
+				<ul> 
+					<li><%= current_user.username%></li>
+					<li><%= link_to 'Home', root_path %></li>
+					<li><%= link_to 'Log out', logout_path, method: "delete" %></li>
+					<li><%= link_to 'Destinations', controller: 'destinations' %></li>
+				</ul>
+			<% else %>
+				<!--Nav menu if user is NOT logged in (to be place under 'else'-->
+				<ul>
+					<li><%= link_to 'Home', root_path %></li>
+					<li><%= link_to 'Login', login_path %></a></li> 
+					<li><%= link_to 'Signup', signup_path %></a></li>
+					<li><%= link_to 'Destinations', controller: 'destinations' %></li>
+				</ul>
+			<% end %>
+		</nav>
+	</header>
 
 <%= form_for ([@destination, @destination.trips.build]) do |f| %>
 
-    <!--Code to display error-->
-    <% if @trip.errors.any? %>
-        <div id="error_explanation">
-            <h2>
-                <%= pluralize(@trip.errors.count, "error") %> prohibited
-                this trip from being created:
-            </h2>
-            <ul>
-                <% @trip.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-            <% end %>
-            </ul>
-        </div>
-    <% end %>
+	<!--Code to display error-->
+	<% if @trip.errors.any? %>
+		<div id="error_explanation">
+			<h2>
+				<%= pluralize(@trip.errors.count, "error") %> prohibited
+				this trip from being created:
+			</h2>
+			<ul>
+				<% @trip.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+			</ul>
+		</div>
+	<% end %>
 
-    <p>
-        <%= f.label :depart_date %><br>
-        <%= f.date_field :depart_date %>
-    </p>
-    <p>
-        <%= f.label :return_date %><br>
-        <%= f.date_field :return_date %>
-    </p>
-    <p>
-        <%= f.label :depart_time %><br>
-        <%= f.time_field :depart_time %>
-    </p>
-    <p>
-        <%= f.label :return_time %><br>
-        <%= f.time_field :return_time %>
-    </p>
-    <p>
-        <%= f.label :mode %><br>
-        <%= f.text_field :mode %>
-    </p>
-    <p>
-        <%= f.submit%>
-    </p>
+	<p>
+		<%= f.label :depart_date %><br>
+		<%= f.date_field :depart_date %>
+	</p>
+	<p>
+		<%= f.label :return_date %><br>
+		<%= f.date_field :return_date %>
+	</p>
+	<p>
+		<%= f.label :depart_time %><br>
+		<%= f.time_field :depart_time %>
+	</p>
+	<p>
+		<%= f.label :return_time %><br>
+		<%= f.time_field :return_time %>
+	</p>
+	<p>
+		<%= f.label :mode %><br>
+		<%= f.text_field :mode %>
+	</p>
+	<p>
+		<%= f.submit%>
+	</p>
 <% end %>
+</body>
