@@ -2,7 +2,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans" rel="stylesheet">
 </head>
 
-<body id="background">
+<body id="bg-home">
 	<header>
 		<h1>New Destination!</h1>
 		
@@ -11,8 +11,8 @@
 			<!--Nav menu if user is logged in (to be place in under 'if'-->
 				<ul> 
 					<li><%= current_user.username%></li>
-					<li><%= link_to 'Home', root_path %></li>
 					<li><%= link_to 'Log out', logout_path, method: "delete" %></li>
+					<li><%= link_to 'Home', root_path %></li>
 					<li><%= link_to 'Destinations', controller: 'destinations' %></li>
 				</ul>
 			<% else %>

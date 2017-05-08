@@ -2,6 +2,29 @@
 	<link href="https://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans" rel="stylesheet">
 </head>
 
+<body id="bg">
+	<!---->
+
+	<% if asset_exist?("#{@destination.city}.png")%>
+		<script>
+			window.onload = styleUpdate();
+			
+			function styleUpdate() {
+				document.getElementById("bg").style.backgroundImage = "url('<%= asset_url "/assets/#{@destination.city}.png" %>')";
+			};
+		</script>
+	<% else %>
+		<script>
+			window.onload = styleUpdate();
+			
+			function styleUpdate() {
+				document.getElementById("bg").style.backgroundImage = "url('<%= asset_url "/assets/home.jpg" %>'";
+			};
+		</script>
+	<% end %>
+	<!---->
+
+	
 	<header>
 		<h1>Destination Details</h1>
 		
@@ -10,8 +33,8 @@
 			<!--Nav menu if user is logged in (to be place in under 'if'-->
 				<ul> 
 					<li><%= current_user.username%></li>
-					<li><%= link_to 'Home', root_path %></li>
 					<li><%= link_to 'Log out', logout_path, method: "delete" %></li>
+					<li><%= link_to 'Home', root_path %></li>
 					<li><%= link_to 'Destinations', controller: 'destinations' %></li>
 				</ul>
 			<% else %>
@@ -26,21 +49,21 @@
 		</nav>
 	</header>
 	
-	
-	
-	<p>
-		<strong>Country:</strong>
-		<%= @destination.country %>
-	</p>
-	
-	<p>
-		<strong>City:</strong>
-		<%= @destination.city %>
-	</p>
-	
-	<h2>Trips</h2>
-	<p><%= link_to 'Create Trip', new_destination_trip_path(@destination) %></p>
-	
-	<%= render @destination.trips %>
-	
-	<img id="pic" src=<%= "/assets/#{@destination.city}.png" %> alt="Destination Image">
+	<div id="view_trip">
+		<p>
+			<strong>Country:</strong>
+			<%= @destination.country %>
+		</p>
+		
+		<p>
+			<strong>City:</strong>
+			<%= @destination.city %>
+		</p>
+		
+		<h2>Trips</h2>
+		<%= render @destination.trips %>
+		
+		<h3>Add a Trip:</h3>
+		<%= render 'trips/new' %>
+	</div>
+</body>

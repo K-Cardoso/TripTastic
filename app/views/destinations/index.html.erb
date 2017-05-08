@@ -2,7 +2,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans" rel="stylesheet">
 </head>
 
-<body id="background">
+<body id="bg-home">
 	<header>
 		<h1>TripTastic</h1>
 		<h3>Destinations Around The World Are Just A Click Away</h3>
@@ -12,13 +12,10 @@
 			<!--Nav menu if user is logged in (to be place in under 'if'-->
 				<ul>
 					<li><%= current_user.username%></li>
-					<li><%= link_to 'Home', root_path %></li>
 					<li><%= link_to 'Log out', logout_path, method: "delete" %></li>
+					<li><%= link_to 'Home', root_path %></li>
 					<li><%= link_to 'Destinations', controller: 'destinations' %>
-						<ul>
-							<li><%= link_to 'Create Destination', new_destination_path %></li>
-						</ul>
-					</li>
+					<li><%= link_to 'Create Destination', new_destination_path %></li>
 				</ul>
 			<% else %>
 				<!--Nav menu if user is NOT logged in (to be place under 'else'-->
@@ -31,38 +28,25 @@
 			<% end %>
 		</nav>
 	</header>
-
-<!--<div class="TryThis">-->
-<!--    <div class="TryThis2">-->
-<!--      <img src=<%= "/assets/cartoonplane.png" %> alt="Destination Image" style="width:500px;height:250px;">-->
-<!--    </div>-->
-<!--</div>-->
-
-	<p><%= link_to 'Create Destination', new_destination_path %></p>
 	
-	<div id="view_list">
-		<table>
-			<tr>
-				<th>Country</th>
-				<th>City</th>
-			</tr>
+	<div id="view_dest">
+		<% @destination.each do |destination| %>
+			<%= link_to "Go to #{destination.city}, #{destination.country}" , destination_path(destination), id: "dest" %>
 			
-			<% @destination.each do |destination| %>
-				<tr>
-					<td><%= destination.country %></td>
-					<td><%= destination.city %></td>
-					<td><%= link_to 'Show', destination_path(destination) %></td>
-					<td><%= link_to 'Edit', edit_destination_path(destination) %></td>
-					<td><%= link_to 'Delete', 
-															destination_path(destination),
-															method: :delete,
-															data: {confirm: 'Are you sure?' } %></td>
-				</tr>
-				<tr>
-					<td><img id="destination_image" src=<%= "/assets/#{destination.city}.png" %> alt="Destination Image" style="width:500px;height:250px;"></td>
-				</tr>
+			<% if current_user %>
+				<%= link_to 'Edit', edit_destination_path(destination) %>
+				<%= link_to 'Delete', 
+					destination_path(destination), 
+					method: :delete, 
+					data: {confirm: 'Are you sure?' } %>
 			<% end %>
-		</table>
+			<div id="dest_image">
+				<% if asset_exist?("#{destination.city}.png")%>
+					<img id="destination_image" src=<%= "/assets/#{destination.city}.png" %> alt="Destination Image">
+				<% else %>
+					<img id="destination_image" src=<%= "/assets/default.jpg" %> alt="Destination Image">
+				<% end %>
+			</div>
+		<% end %>
 	</div>
-	
 </body>

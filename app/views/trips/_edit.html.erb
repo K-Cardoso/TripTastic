@@ -1,0 +1,43 @@
+<!--([@destination, @destination.trips.build])-->
+<%= form_for :trip, url: destination_trip_path(@destination,@trip), method: :patch do |f| %>
+  
+  	<!--Code to display error-->
+  	<% if @trip.errors.any? %>
+  		<div id="error_explanation">
+  			<h2>
+  				<%= pluralize(@trip.errors.count, "error") %> prohibited
+  				this trip from being created:
+  			</h2>
+  			<ul>
+  				<% @trip.errors.full_messages.each do |msg| %>
+  				<li><%= msg %></li>
+  			<% end %>
+  			</ul>
+  		</div>
+  	<% end %>
+  	
+	<p>
+		<%= f.label :depart_date %><br>
+		<%= f.date_field :depart_date %>
+	</p>
+	<p>
+		<%= f.label :return_date %><br>
+		<%= f.date_field :return_date %>
+	</p>
+	<p>
+		<%= f.label :depart_time %><br>
+		<%= f.time_field :depart_time %>
+	</p>
+	<p>
+		<%= f.label :return_time %><br>
+		<%= f.time_field :return_time %>
+	</p>
+	<p>
+		<%= f.label :mode %><br>
+		<%= f.select(:mode, options_for_select(
+			[['Airplane','AIR'],['Car','CAR'],['Bus','BUS'],['Train','TRAIN']]))%>
+	</p>
+	<p>
+		<%= f.submit%>
+	</p>
+<% end %>

@@ -1,5 +1,4 @@
 class DestinationsController < ApplicationController
-    
     def new
         @destination = Destination.new
     end
@@ -22,7 +21,8 @@ class DestinationsController < ApplicationController
     def update
         @destination= Destination.find(params[:id])
         if @destination.update(destination_params)
-            redirect_to @destination
+            # redirect_to @destination
+            redirect_to controller: 'destinations'
         else
             render 'edit'
         end
@@ -39,7 +39,7 @@ class DestinationsController < ApplicationController
     def destroy
         @destination = Destination.find(params[:id])
         @destination.destroy
-        redirect_to destinations_url
+        redirect_to destinations_path
     end
 end
 

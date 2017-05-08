@@ -2,35 +2,35 @@
 	<link href="https://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans" rel="stylesheet">
 </head>
 
-	<header>
-		<h1>Sign up</h1>
-		
-		<nav class="nav_menu">
-			<% if current_user %>
-			<!--Nav menu if user is logged in (to be place in under 'if'-->
-				<ul> 
-					<li><%= current_user.username%></li>
-					<li><%= link_to 'Home', root_path %></li>
-					<li><%= link_to 'Log out', logout_path, method: "delete" %></li>
-					<li><%= link_to 'Destinations', controller: 'destinations' %></li>
-				</ul>
-			<% else %>
-				<!--Nav menu if user is NOT logged in (to be place under 'else'-->
-				<ul>
-					<li><%= link_to 'Home', root_path %></li>
-					<li><%= link_to 'Login', login_path %></a></li> 
-					<li><%= link_to 'Destinations', controller: 'destinations' %></li>
-				</ul>
-			<% end %>
-		</nav>
-	</header>
+<header>
+	<h1>Sign up</h1>
+	
+	<nav class="nav_menu">
+		<% if current_user %>
+		<!--Nav menu if user is logged in (to be place in under 'if'-->
+			<ul> 
+				<li><%= current_user.username%></li>
+				<li><%= link_to 'Home', root_path %></li>
+				<li><%= link_to 'Log out', logout_path, method: "delete" %></li>
+				<li><%= link_to 'Destinations', controller: 'destinations' %></li>
+			</ul>
+		<% else %>
+			<!--Nav menu if user is NOT logged in (to be place under 'else'-->
+			<ul>
+				<li><%= link_to 'Home', root_path %></li>
+				<li><%= link_to 'Login', login_path %></a></li> 
+				<li><%= link_to 'Destinations', controller: 'destinations' %></li>
+			</ul>
+		<% end %>
+	</nav>
+</header>
 
 <div class="login">
 	<div class="container">
 		<div class="form">
 		
 		<%= form_for(@user) do |f| %>
-			<%= f.email_field :username, :placeholder => "Username" %>
+			<%= f.email_field :username, :placeholder => "Email" %>
 			<%= f.password_field :password, :placeholder => "Password" %>
 			<%= f.submit "Create an account", class: "btn-submit" %>
 		<% end %>

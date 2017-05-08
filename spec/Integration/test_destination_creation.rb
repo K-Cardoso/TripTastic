@@ -19,4 +19,14 @@ feature "Vistor creates new account" do
         expect(page).to have_content("TripTastic")
         expect(page).to have_content("rspec@rspec.com")
     end
+    
+    scenario "Visitor can create a destination" do
+    visit root_path 
+    expect(page).to have_content("TripTastic")
+    click_link "Create Destination"
+    fill_in "Country", with: "Merica"
+    fill_in "City", with: "RspecPotato"
+    click_button "Save Destination"
+    end
+    
 end

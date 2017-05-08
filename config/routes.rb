@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'welcome/index'
-  resources :destinations do 
+  
+  resources :destinations do
     resources :trips
   end
   

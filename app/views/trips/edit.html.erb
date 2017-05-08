@@ -2,10 +2,10 @@
 	<link href="https://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans" rel="stylesheet">
 </head>
 
-<body id="bg-home">
+<body id="background">
 
 	<header>
-		<h1>Edit Destination</h1>
+		<h1>Edit Trip</h1>
 		
 		<nav class="nav_menu">
 			<% if current_user %>
@@ -27,36 +27,7 @@
 			<% end %>
 		</nav>
 	</header>
-
-<%= form_for :destination, url: destination_path(@destination), method: :patch do |f| %>
-
-   <!--Code to display error-->
-  <% if @destination.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@destination.errors.count, "error") %> prohibited
-        this destination from being saved:
-      </h2>
-      <ul>
-        <% @destination.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
   
-  <p>
-    <%= f.label :country %><br>
-    <%= f.text_field :country %>
-  </p>
-  
-  <p>
-    <%= f.label :city %><br>
-    <%= f.text_field :city %>
-  </p>
-  
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+	<%= render 'trips/edit' %>
+	
 </body>
