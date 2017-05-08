@@ -25,16 +25,18 @@
 	</nav>
 </header>
 
-<div class="login">
-	<div class="container">
-		<div class="form">
-		
-		<%= form_for(@user) do |f| %>
-			<%= f.email_field :username, :placeholder => "Email" %>
-			<%= f.password_field :password, :placeholder => "Password" %>
-			<%= f.submit "Create an account", class: "btn-submit" %>
-		<% end %>
-		
+<body id="bg-home">
+	<div class="login">
+		<div class="container">
+			<div class="form">
+			
+			<%= form_for(@user) do |f| %>
+				<%= f.email_field :username, :placeholder => "Email" %>
+				<%= f.password_field :password, :placeholder => "Password" %>
+				<%= f.submit "Create an account", class: "btn-submit" %>
+			<% end %>
+			
+			</div>
 		</div>
 	</div>
-</div>
+</body>

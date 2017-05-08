@@ -30,23 +30,25 @@
 	</header>
 	
 	<div id="view_dest">
-		<% @destination.each do |destination| %>
-			<%= link_to "Go to #{destination.city}, #{destination.country}" , destination_path(destination), id: "dest" %>
-			
-			<% if current_user %>
-				<%= link_to 'Edit', edit_destination_path(destination) %>
-				<%= link_to 'Delete', 
-					destination_path(destination), 
-					method: :delete, 
-					data: {confirm: 'Are you sure?' } %>
-			<% end %>
-			<div id="dest_image">
-				<% if asset_exist?("#{destination.city}.png")%>
-					<img id="destination_image" src=<%= "/assets/#{destination.city}.png" %> alt="Destination Image">
-				<% else %>
-					<img id="destination_image" src=<%= "/assets/default.jpg" %> alt="Destination Image">
+		<div id="destination">
+			<% @destination.each do |destination| %>
+				<%= link_to "Go to #{destination.city}, #{destination.country}" , destination_path(destination), id: "dest" %>
+				
+				<% if current_user %>
+					<%= link_to 'Edit', edit_destination_path(destination) %>
+					<%= link_to 'Delete', 
+						destination_path(destination), 
+						method: :delete, 
+						data: {confirm: 'Are you sure?' } %>
 				<% end %>
+				<div id="dest_image">
+					<% if asset_exist?("#{destination.city}.png")%>
+						<img id="destination_image" src=<%= "/assets/#{destination.city}.png" %> alt="Destination Image">
+					<% else %>
+						<img id="destination_image" src=<%= "/assets/default.jpg" %> alt="Destination Image">
+					<% end %>
+				</div>
+			<% end %>
 			</div>
-		<% end %>
 	</div>
 </body>
