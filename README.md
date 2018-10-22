@@ -1,5 +1,5 @@
 # Triptastic
 
-Ruby on rail web application build for Software Engineering Class.
+Ruby on rail web application build for Software Engineering Class, ITSC 3155.
 
-ReadMe Updated as of: 2018.10.22
+TripTastic is a website for booking flights around the world. Built using Ruby on Rail and the MVC architecture.
